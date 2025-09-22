@@ -29,3 +29,7 @@ the change would be super simple, since this already uses a thread, adding more 
 
 - Uses strong typing with custom types for Money, ClientId, and TxId.
 - I specifically designed the data types so that they're impossible to misuse (see Raw* tys)
+
+## Assumptions
+
+I've assumed that only withdrawals can get disputed.
