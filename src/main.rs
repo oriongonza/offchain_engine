@@ -159,7 +159,7 @@ fn make_thread() -> (
 }
 
 fn process_all(file: File) -> anyhow::Result<AccountMap> {
-    const BUF_SIZE: usize = 32;
+    const BUF_SIZE: usize = 256; // Better throughput for larger datasets
 
     let t0 = Instant::now();
     let (sender, h) = make_thread();

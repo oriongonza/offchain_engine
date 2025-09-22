@@ -85,6 +85,8 @@ impl TryFrom<RawTx> for Tx {
 pub fn get_transactions(file: impl Read) -> impl Iterator<Item = anyhow::Result<Tx>> {
     let reader = csv::ReaderBuilder::new()
         .flexible(false)
+        // It's significantly faster to have Trim::None, but depending on the dataset it
+        // might fail
         .trim(csv::Trim::All)
         .from_reader(file);
     let records = reader.into_deserialize::<RawTx>();
